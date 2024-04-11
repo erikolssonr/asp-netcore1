@@ -1,0 +1,42 @@
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+body {
+    @include font-standard;
+    background-color: var(--color-white);
+    color: var(--color-gray-900);
+    margin: 0;
+}
+
+a {
+    @include font-standard;
+    color: var(--color-theme);
+    font-size: 1em;
+    display: inline-block;
+
+    &:active,
+    &:focus,
+    &:hover {
+        color: var(--color-theme);
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.nav-link {
+    @include font-semibold;
+    color: var(--color-gray-900) !important;
+    text-decoration: none;
+    font-size: 1em;
+    display: inline-block;
+
+    &:active,
+    &.active,
+    &:hover {
+        color: var(--color-theme) !important;
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,65 @@
+﻿@model SubscribeForm
+
+<section class="subscribe">
+    <div class="container">
+        <div class="title">
+            <h2>Don't want to miss anything?</h2>
+            <img src="~/images/home/arrows-subscribe.svg" alt="" />
+        </div>
+        <form method="post" asp-action="Subscribe" asp-controller="Subscribe">
+
+           <div class="alternative">
+                <h4>Sign up for Newsletters</h4>
+
+                <div class="options">
+
+                    <div class="checkbox-group">
+                        <div class="input-group">
+                            <input asp-for="DailyNewsletter" />
+                            <label asp-for="DailyNewsletter">Daily Newsletter</label>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="input-group">
+                            <input asp-for="AdvertisingUpdates" />
+                            <label asp-for="AdvertisingUpdates">Advertising Updates</label>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="input-group">
+                            <input asp-for="WeekInReview" />
+                            <label asp-for="WeekInReview">Week In Review</label>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="input-group">
+                            <input asp-for="EventUpdates" />
+                            <label asp-for="EventUpdates">Event Updates</label>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="input-group">
+                            <input asp-for="StartupsWeekly" />
+                            <label asp-for="StartupsWeekly">Startups Weekly</label>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <div class="input-group">
+                            <input asp-for="Podcasts" />
+                            <label asp-for="Podcasts">Podcasts</label>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+            <div class="email">
+                <div class="input-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input asp-for="Email" placeholder="Your Email"/>
+                </div>
+                <button type="submit" class="btn btn-theme">Subscribe *</button>
+            </div>
+            <p class="terms">* Yes, I agree to the <a asp-action="Terms" asp-controller="About">terms</a> & <a asp-action="Privacy" asp-controller="About">privacy policy</a></p>
+        </form>
+    </div>
+</section>

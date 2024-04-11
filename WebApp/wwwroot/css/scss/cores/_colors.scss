@@ -17,3 +17,11 @@
     --color-info: #4C82F7;
     --color-danger-bg: #F5D7DA;
 }
+
+@mixin shadow-theme {
+    box-shadow: 0 8px 18px -8px var(--color-theme-o);
+}
+
+@mixin shadow-secondary {
+    box-shadow: 0 8px 18px -8px var(--color-gray-400);
+}

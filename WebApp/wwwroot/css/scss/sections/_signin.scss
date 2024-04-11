@@ -1,0 +1,47 @@
+﻿.signin {
+    margin-bottom: 50px;
+    height: 70vh;
+
+    .container {
+        width: 95%;
+
+        @include xl {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        form {
+
+            @include xl {
+                padding-top: 50px;
+                width: 50%;
+            }
+
+            h1 {
+                margin-bottom: 0;
+            }
+
+            .form-content {
+                margin-top: 30px;
+                gap: 20px;
+
+                .checkbox-group {
+                    margin-bottom: 30px;
+                }
+
+                .sign-in-btn {
+                    margin-top: 400px;
+                }
+            }
+
+            .recover-account {
+                text-align: center;
+                
+                a {
+                    @include font-semibold;
+                }
+            }
+        }
+    }
+}

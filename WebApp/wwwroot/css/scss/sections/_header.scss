@@ -6,7 +6,7 @@ header {
         align-items: center;
         gap: 40px;
         grid-template-columns: 1fr auto;
-        grid-template-areas: "logo mobile";
+        grid-template-areas: "logo sw mobile";
 
         @include xl {
             grid-template-columns: auto 1fr auto auto;
@@ -26,7 +26,7 @@ header {
             a {
                 text-decoration: none;
                 font-weight: 600;
-                color: var(--color-gray-800);
+                color: var(--color-gray-900);
 
                 &:active,
                 &.active,
@@ -43,12 +43,19 @@ header {
 
         .btn-switch {
             grid-area: sw;
+            display: none;
+
+            @include xl {
+                display: block;
+            }
+
         }
 
         .account-buttons {
             grid-area: account;
             display: none;
             gap: 20px;
+            align-items: center;
 
             @include xl {
                 display: flex;

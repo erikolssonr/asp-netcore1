@@ -1,0 +1,47 @@
+﻿.theme-showcase {
+    height: 100vh;
+    background: linear-gradient(to right, #0B0F19 50%, #FFFFFF 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .container {
+
+
+        .title {
+            
+            .light {
+                color: var(--color-white);
+                padding-right: 12px;
+            }
+
+            .dark {
+                color: var(--color-gray-900);
+                padding-left: 12px;
+            }
+            h1 {
+                padding-left: 25px;
+                padding-bottom: 50px;
+            }
+        }
+
+        .dark-laptop-theme {
+
+            img {
+
+            }
+        }
+
+        .light-laptop-theme {
+            position: relative;
+
+            img {
+                position: absolute;
+                top: -646px;
+                left: 646px;
+                z-index: 1;
+            }
+        }
+    }
+}

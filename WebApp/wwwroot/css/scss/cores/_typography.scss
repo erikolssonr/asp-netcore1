@@ -1,5 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+h1 {
+    @include font-h1;
+}
 
-:root {
-    --font-manrope: 'Manrope', sans-serif;
+h2 {
+    @include font-h2;
+}
+
+h3 {
+    @include font-h3;
+}
+
+h4 {
+    @include font-h4;
+}
+
+h5 {
+    @include font-h5;
+}
+
+h6 {
+    @include font-h6;
 }

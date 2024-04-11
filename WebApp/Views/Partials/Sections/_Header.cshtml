@@ -1,18 +1,62 @@
-﻿<header>
-    <div class="container">
-        <a class="logo" asp-action="Home" asp-controller="Default"><img src="~/images/logos/silicon-logo.svg" alt="Silicon Logo"/></a>
+﻿@inject SignInManager<UserEntity> _signInManager
 
-        <nav>
-            <a class="active" asp-action="Home" asp-controller="Default">Overview</a>
-            <a asp-action="Home" asp-controller="Default">Features</a>
-            <a asp-action="Contact" asp-controller="Default">Contact</a>
-        </nav>
+@if (_signInManager.IsSignedIn(User))
+{
+    <header>
+        <div class="container">
+            <a class="logo" asp-action="Home" asp-controller="Default"><img src="~/images/logos/silicon-logo.svg" alt="Silicon Logo" /></a>
 
-        <div class="account-buttons">
-            <a class="btn-theme-secondary btn-small" asp-action="SignIn" asp-controller="Auth"><i class="fa-regular fa-arrow-right-to-bracket"></i>Sign in</a>
-            <a class="btn-theme btn-small" asp-action="SignUp" asp-controller="Auth"><i class="fa-regular fa-user"></i>Sign up</a>
+            <nav>
+                <a class="active" asp-action="Home" asp-controller="Default">Overview</a>
+                <a asp-action="Home" asp-controller="Default">Courses</a>
+                <a asp-action="Contact" asp-controller="Default">Contact</a>
+            </nav>
+
+            <div class="theme-switch">
+                <label for="theme-switch-mode">Light</label>
+                <label class="switch">
+                    <input id="theme-switch-mode" type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <label for="theme-switch-mode">Dark</label>
+            </div>
+
+            <div class="account-buttons">
+                @User.Identity.Name
+                <a class="btn-theme-secondary btn-small" asp-action="SignOut" asp-controller="Auth"><i class="fa-regular fa-arrow-left-to-bracket"></i>Sign Out</a>
+            </div>
+
+            <button class="btn-mobile"><i class="fa-regular fa-bars"></i></button>
         </div>
+    </header>
+}
+else
+{
+    <header>
+        <div class="container">
+            <a class="logo" asp-action="Home" asp-controller="Default"><img src="~/images/logos/silicon-logo.svg" alt="Silicon Logo" /></a>
 
-        <button class="btn-mobile"><i class="fa-regular fa-bars"></i></button>
-    </div>
-</header>
+            <nav>
+                <a class="active" asp-action="Home" asp-controller="Default">Overview</a>
+                <a asp-action="Home" asp-controller="Default">Features</a>
+                <a asp-action="Contact" asp-controller="Default">Contact</a>
+            </nav>
+
+            <div class="theme-switch">
+                <label for="theme-switch-mode">Light</label>
+                <label class="switch">
+                    <input id="theme-switch-mode" type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <label for="theme-switch-mode">Dark</label>
+            </div>
+
+            <div class="account-buttons">
+                <a class="btn-theme-secondary btn-small" asp-action="SignIn" asp-controller="Auth"><i class="fa-regular fa-arrow-right-to-bracket"></i>Sign in</a>
+                <a class="btn-theme btn-small" asp-action="SignUp" asp-controller="Auth"><i class="fa-regular fa-user"></i>Sign up</a>
+            </div>
+
+            <button class="btn-mobile"><i class="fa-regular fa-bars"></i></button>
+        </div>
+    </header>
+}

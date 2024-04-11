@@ -1,0 +1,51 @@
+.showcase {
+    .container {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+
+        .content {
+            padding-bottom: 250px;
+
+
+            h1 {
+                @include font-d4;
+            }
+
+            p {
+                font-size: 18px;
+                padding-bottom: 35px;
+            }
+
+            .btn-get-started {
+               
+            }
+
+            .brands {
+                
+                h6 {
+                    margin: 100px 0 50px 0;
+                }
+                .brand-logos {
+                    display: flex;
+                    gap: 30px;
+
+                    brand-logo {
+                        width: 120px;
+                    }
+                }
+            }
+        }
+
+        .showcase-img {
+            width: 45%;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
+
+.placeholder {
+    height: 300px;
+    background-color: antiquewhite;
+}

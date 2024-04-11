@@ -1,0 +1,74 @@
+﻿.subscribe {
+    background-color: var(--color-gray-100);
+    padding: 4rem 0 10rem;
+
+    .container {
+        width: 55%;
+
+        .title {
+            display: flex;
+            align-items: center;
+
+            h2 {
+                @include font-h1;
+            }
+
+            img {
+                padding-left: 30px;
+                padding-top: 20px;
+            }
+        }
+
+        form {
+            color: var(--color-gray-700);
+
+            .alternative {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+
+                h4 {
+                    width: 100%;
+                }
+
+                .options {
+                    margin: 1.5rem 3rem 3rem 3rem;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+
+                    input {
+                        color: var(--color-gray-100);
+                    }
+                }
+            }
+
+            .email {
+                display: grid;
+                align-items: center;
+                grid-template-columns: 1fr auto;
+                gap: 1.5rem;
+
+                .input-group {
+                    position: relative;
+                    
+                    i {
+                        color: var(--color-gray-500);
+                        position: absolute;
+                        left: 20px;
+                        top: 20px;
+                        font-size: 1.2em;
+                    }
+
+                    input {
+                        color: var(--color-gray-500);
+                        padding-left: 55px;
+                    }
+                }
+            }
+
+            .terms {
+                font-size: 14px;
+                color: var(--color-gray-600);
+            }
+        }
+    }
+}
