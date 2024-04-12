@@ -1,0 +1,42 @@
+.account-profile {
+
+    .profile {
+        display: flex;
+        justify-content: center;
+
+        .image {
+            position: relative;
+
+            img {
+                border-radius: 50%;
+                height: 120px;
+                width: 120px;
+                object-fit: cover;
+                border: 1px solid var(--color-gray-400);
+            }
+
+            form {
+                position: relative;
+
+                label {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    .info {
+        margin-top: 0.5rem;
+        text-align: center;
+
+        .displayname {
+            font-size: 1.3em;
+        }
+
+        .email {
+            font-size: 0.8em;
+        }
+    }
+}

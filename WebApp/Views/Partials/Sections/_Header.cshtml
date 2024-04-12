@@ -1,6 +1,8 @@
-﻿@inject SignInManager<UserEntity> _signInManager
+﻿@{
+    var user = await UserManager.GetUserAsync(User);
+}
 
-@if (_signInManager.IsSignedIn(User))
+@if (SignInManager.IsSignedIn(User) && user != null)
 {
     <header>
         <div class="container">
@@ -22,11 +24,14 @@
             </div>
 
             <div class="account-buttons">
-                @User.Identity.Name
-                <a class="btn-theme-secondary btn-small" asp-action="SignOut" asp-controller="Auth"><i class="fa-regular fa-arrow-left-to-bracket"></i>Sign Out</a>
+                <div class="profile">
+                    <div class="image">
+                        <a asp-action="Details" asp-controller="Account">
+                            <img src="@Configuration["FilePath:ProfileImagePath"]/@user.ProfileImage" alt="" />
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <button class="btn-mobile"><i class="fa-regular fa-bars"></i></button>
         </div>
     </header>
 }
@@ -55,8 +60,6 @@ else
                 <a class="btn-theme-secondary btn-small" asp-action="SignIn" asp-controller="Auth"><i class="fa-regular fa-arrow-right-to-bracket"></i>Sign in</a>
                 <a class="btn-theme btn-small" asp-action="SignUp" asp-controller="Auth"><i class="fa-regular fa-user"></i>Sign up</a>
             </div>
-
-            <button class="btn-mobile"><i class="fa-regular fa-bars"></i></button>
         </div>
     </header>
 }

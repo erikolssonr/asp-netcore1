@@ -1,4 +1,5 @@
-﻿using Infrastructure.Entities;
+﻿using Infrastructure.Contexts;
+using Infrastructure.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace WebApp.Configurations

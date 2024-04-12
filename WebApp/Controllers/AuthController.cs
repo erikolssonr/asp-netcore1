@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using WebApp.Models;
-using static System.Net.WebRequestMethods;
 
 namespace WebApp.Controllers;
 
@@ -34,7 +32,7 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
             {
                 var userEntity = new UserEntity()
                 {
-                    FirtName = viewModel.FirstName,
+                    FirstName = viewModel.FirstName,
                     LastName = viewModel.LastName,
                     Email = viewModel.Email,
                     UserName = viewModel.Email

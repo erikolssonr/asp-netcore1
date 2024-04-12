@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using WebApp.Helpers;
+﻿using Infrastructure.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models;
 

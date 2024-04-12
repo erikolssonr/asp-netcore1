@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApp.Configurations
 {
@@ -7,6 +8,7 @@ namespace WebApp.Configurations
         public static void RegisterDbContexts(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationContext>(x => x.UseSqlServer(configuration.GetConnectionString("SqlServer")));
+            services.AddDbContext<DataContext>(x => x.UseSqlServer(configuration.GetConnectionString("SqlServer")));
         }
     }
 }

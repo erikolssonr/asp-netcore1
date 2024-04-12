@@ -8,9 +8,8 @@ using WebApp.Models;
 namespace WebApp.Controllers;
 
 
-public class DefaultController(DataContext context) : Controller
+public class DefaultController : Controller
 {
-    private readonly DataContext _context = context;
 
     [Route("/")]
     public IActionResult Home()

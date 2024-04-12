@@ -1,0 +1,31 @@
+.account {
+    height: 100%;
+    padding: 2rem 0;
+
+    .container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 350px 1fr;
+
+
+        aside {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-right: 2rem;
+            border-right: 1px solid var(--color-gray-400);
+
+            .account-nav {
+                margin-top: 2rem;
+
+                .btn {
+                    margin-bottom: 10px;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        main {
+            padding: 1rem 2rem;
+        }
+    }
+}

@@ -4,10 +4,12 @@ namespace Infrastructure.Entities;
 
 public class UserEntity : IdentityUser
 {
-    [ProtectedPersonalData]
-    public string FirtName { get; set; } = null!;
+    public string? FirstName { get; set; }
+    public string? LastName { get; set; }
+    public string? ProfileImage { get; set; } = "avatar.jpg";
+    public bool IsExternal { get; set; }
+    public string? Bio { get; set; }
 
-    [ProtectedPersonalData]
-    public string LastName { get; set; } = null!;
-
+    public int? AddressId { get; set; }
+    public AddressEntity? Address { get; set; }
 }

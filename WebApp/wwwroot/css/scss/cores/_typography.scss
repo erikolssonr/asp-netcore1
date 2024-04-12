@@ -21,3 +21,10 @@ h5 {
 h6 {
     @include font-h6;
 }
+
+@mixin text-nav {
+    @include standard-text;
+    font-size: 16px;
+    color: var(--color-gray-800);
+    font-weight: 600;
+}

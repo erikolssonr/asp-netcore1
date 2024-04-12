@@ -12,6 +12,7 @@ namespace Infrastructure.Models
         public int TotalPages { get; set; }
         public int PageSize { get; set; }
         public int TotalCount { get; set; }
+        public int TotalItems { get; set; }
         public IEnumerable<Course>? Courses { get; set; }
 
         public void UpdateTotalPages()

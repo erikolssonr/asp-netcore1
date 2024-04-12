@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Partials\Components\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
   <ItemGroup>

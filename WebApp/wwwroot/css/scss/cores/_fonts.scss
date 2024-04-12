@@ -92,3 +92,10 @@ $font-manrope: "Manrope", sans-serif;
     @include heading;
     font-size: 1em !important;
 }
+
+@mixin standard-text {
+    line-height: 160%;
+    font-weight: 400;
+    color: var(--color-gray-700);
+    font-family: var(--font-standard);
+}
