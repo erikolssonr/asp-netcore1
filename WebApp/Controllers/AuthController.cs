@@ -2,15 +2,18 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using WebApp.Models;
+using static System.Net.WebRequestMethods;
 
 namespace WebApp.Controllers;
 
-public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager) : Controller
+public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, HttpClient http, IConfiguration configuration) : Controller
 {
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
-
+    private readonly HttpClient _http;
+    private readonly IConfiguration _configuration;
 
     #region SignUp
 
@@ -77,7 +80,7 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
             if (user != null)
             {
                 var result = await _signInManager.PasswordSignInAsync(user, viewModel.Password, viewModel.RememberMe, false);
-                if (result.Succeeded) 
+                if (result.Succeeded)
                 {
                     return RedirectToAction("Home", "Default");
                 }

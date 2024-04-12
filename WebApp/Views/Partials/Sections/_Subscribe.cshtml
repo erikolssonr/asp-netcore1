@@ -1,6 +1,6 @@
 ﻿@model SubscribeForm
 
-<section class="subscribe">
+<section id="subscribe" class="subscribe">
     <div class="container">
         <div class="title">
             <h2>Don't want to miss anything?</h2>
@@ -60,6 +60,9 @@
                 <button type="submit" class="btn btn-theme">Subscribe *</button>
             </div>
             <p class="terms">* Yes, I agree to the <a asp-action="Terms" asp-controller="About">terms</a> & <a asp-action="Privacy" asp-controller="About">privacy policy</a></p>
+            <div>
+                @TempData["Status"]
+            </div>
         </form>
     </div>
 </section>
