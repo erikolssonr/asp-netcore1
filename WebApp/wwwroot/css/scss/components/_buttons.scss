@@ -16,6 +16,35 @@
     }
 }
 
+.btn-gray {
+    background: var(--color-gray);
+    color: var(--color-black);
+    border: 1px solid var(--color-gray);
+
+    &:hover {
+        text-decoration: none;
+        border: 1px solid var(--color-theme);
+        background: var(--color-theme);
+        color: var(--color-white);
+    }
+}
+
+.btn-white {
+    border: 1px solid var(--color-gray-100);
+    background-color: var(--color-white);
+    color: var(--color-gray-100);
+
+    &:hover {
+        border: 1px solid var(--color-gray-700);
+        background-color: var(--color-gray-700);
+        color: var(--color-white);
+
+        i {
+            color: var(--color-white);
+        }
+    }
+}
+
 @mixin button {
     border: none;
     font-weight: 600;
@@ -124,8 +153,8 @@
     background: var(--color-white);
     color: var(--color-gray-700);
     padding: 8px 8px;
-    width: 44px;
-    height: 44px;
+    width: 30px;
+    height: 30px;
     font-size: 14px;
     border-radius: 50%;
     border: 1px solid var(--color-gray-300);
@@ -139,11 +168,7 @@
     &:hover {
         cursor: pointer
     }
-
-    .btn-circle-sm {
-        width: 30px;
-        height: 30px;
-    }
+    
 }
 
 .btn-switch {
@@ -229,6 +254,35 @@
     &:hover {
         text-decoration: none;
         background: var(--color-gray-700);
+        color: var(--color-gray-100);
+    }
+}
+.btn-nav {
+    padding: 8px 0;
+    font-size: 16px;
+
+    &.active {
+        border: 1px solid var(--color-theme);
+        background-color: var(--color-theme);
+        color: var(--color-white);
+    }
+
+    &:hover {
+        border: 1px solid var(--color-gray-800);
+        background-color: var(--color-gray-800);
+        color: var(--color-gray-100);
+        text-decoration: none;
+    }
+}
+
+.btn-theme {
+    border: 1px solid var(--color-theme);
+    background-color: var(--color-theme);
+    color: var(--color-white);
+
+    &:hover {
+        border: 1px solid var(--color-gray-800);
+        background-color: var(--color-gray-800);
         color: var(--color-gray-100);
     }
 }

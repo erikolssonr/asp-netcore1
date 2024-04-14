@@ -1,20 +1,18 @@
 ﻿using Infrastructure.Entities;
+using Infrastructure.Factories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebApp.Models;
 
 namespace WebApp.Controllers;
 
-public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, HttpClient http, IConfiguration configuration) : Controller
+public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager) : Controller
 {
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
-    private readonly HttpClient _http;
-    private readonly IConfiguration _configuration;
+    
 
     #region SignUp
-
     [HttpGet]
     [Route("/signup")]
     public IActionResult SignUp()
@@ -24,68 +22,53 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
 
     [HttpPost]
     [Route("/signup")]
-    public async Task<IActionResult> SignUp(SignUpViewModel viewModel)
+    public async Task<IActionResult> SignUp(SignUpViewModel form)
     {
         if (ModelState.IsValid)
         {
-            if (!await _userManager.Users.AnyAsync(x => x.Email == viewModel.Email))
+            if ((await _userManager.CreateAsync(UserFactory.Create(form), form.Password)).Succeeded)
             {
-                var userEntity = new UserEntity()
+                if ((await _signInManager.PasswordSignInAsync(form.Email, form.Password, false, false)).Succeeded)
                 {
-                    FirstName = viewModel.FirstName,
-                    LastName = viewModel.LastName,
-                    Email = viewModel.Email,
-                    UserName = viewModel.Email
-                };
-
-                var result = await _userManager.CreateAsync(userEntity, viewModel.Password);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("SignIn", "Auth");
-                }
-                else
-                {
-                    ViewData["StatusMessage"] = "Something went wrong. Please try again";
+                    return RedirectToAction("Details", "Account");
                 }
             }
             else
             {
-                ViewData["StatusMessage"] = "User with the same email address already exists";
+                ViewData["StatusMessage"] = "User already exists";
             }
         }
 
-        return View(viewModel);
+        return View(form);
     }
 
     #endregion
 
     #region SignIn
 
+
     [HttpGet]
     [Route("/signin")]
-    public IActionResult SignIn()
+    public IActionResult SignIn(string returnUrl)
     {
+        ViewData["ReturnUrl"] = returnUrl ?? "/";
         return View();
     }
 
     [HttpPost]
     [Route("/signin")]
-    public async Task<IActionResult> SignIn(SignInViewModel viewModel)
+    public async Task<IActionResult> SignIn(SignInViewModel form)
     {
         if (ModelState.IsValid)
         {
-            var user = await _userManager.FindByEmailAsync(viewModel.Email);
-            if (user != null)
+            if ((await _signInManager.PasswordSignInAsync(form.Email, form.Password, form.IsPresistent, false)).Succeeded)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, viewModel.Password, viewModel.RememberMe, false);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Home", "Default");
-                }
+                return RedirectToAction("Home", "Default");
             }
         }
-        ViewData["StatusMessage"] = "Incorrect email or password";
-        return View(viewModel);
+
+        ViewData["StatusMessage"] = "Incorrect e-mail och password";
+        return View(form);
     }
 
     #endregion
@@ -94,10 +77,13 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
 
     [HttpGet]
 
+    [HttpGet]
+    [Route("/signout")]
     public new async Task<IActionResult> SignOut()
     {
+        Response.Cookies.Delete("AccessToken");
         await _signInManager.SignOutAsync();
-        return RedirectToAction("SignIn");
+        return LocalRedirect("/");
     }
 
     #endregion

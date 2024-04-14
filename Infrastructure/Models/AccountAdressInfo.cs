@@ -18,10 +18,12 @@ namespace Infrastructure.Models
 
         [Required(ErrorMessage = "You must enter a postal code")]
         [Display(Name = "Postal code", Prompt = "Enter your postal code")]
+        [MinLength(5, ErrorMessage = "A valid postal code is required")]
         public string PostalCode { get; set; } = null!;
 
         [Required(ErrorMessage = "You must enter a city")]
         [Display(Name = "City", Prompt = "Enter your city")]
+        [MinLength(2, ErrorMessage = "A valid city is required")]
         public string City { get; set; } = null!;
     }
 }

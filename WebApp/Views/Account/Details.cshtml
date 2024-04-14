@@ -5,65 +5,76 @@
     ViewData["Title"] = "Details";
 }
 
-<section>
+<section class="account-information">
     <div class="container">
-        <form method="post" asp-controller="Account" asp-action="UpdateBasicInfo">
-            <div class="input-group">
-                <label asp-for="BasicInfo.FirstName"></label>
-                <input asp-for="BasicInfo.FirstName" />
-                <span asp-validation-for="BasicInfo.FirstName"></span>
-            </div>
-            <div class="input-group">
-                <label asp-for="BasicInfo.LastName"></label>
-                <input asp-for="BasicInfo.LastName" />
-                <span asp-validation-for="BasicInfo.LastName"></span>
-            </div>
-            <div class="input-group">
-                <label asp-for="BasicInfo.Email"></label>
-                <input asp-for="BasicInfo.Email" disabled />
-                <span asp-validation-for="BasicInfo.Email"></span>
-            </div>
-            <div class="input-group">
-                <label asp-for="BasicInfo.PhoneNumber"></label>
-                <input asp-for="BasicInfo.PhoneNumber" />
-                <span asp-validation-for="BasicInfo.PhoneNumber"></span>
-            </div>
-            <div class="input-group">
-                <label asp-for="BasicInfo.Biography"></label>
-                <textarea asp-for="BasicInfo.Biography"></textarea>
-                <span asp-validation-for="BasicInfo.Biography"></span>
-            </div>
-            <div>
-                <button type="reset" class="btn btn-gray">Cancel</button>
-                <button type="submit" class="btn btn-theme">Save changes</button>
-            </div>
-        </form>
 
-        <form method="post" asp-controller="Account" asp-action="UpdateAddressInfo">
-            <div class="input-group">
-                <label asp-for="AddressInfo.AddressLine_1"></label>
-                <input asp-for="AddressInfo.AddressLine_1" />
-                <span asp-validation-for="AddressInfo.AddressLine_1"></span>
-            </div>
-            <div class="input-group">
-                <label asp-for="AddressInfo.AddressLine_2"></label>
-                <input asp-for="AddressInfo.AddressLine_2" />
-                <span asp-validation-for="AddressInfo.AddressLine_2"></span>
-            </div>
-            <div class="input-group">
-                <label asp-for="AddressInfo.PostalCode"></label>
-                <input asp-for="AddressInfo.PostalCode" />
-                <span asp-validation-for="AddressInfo.PostalCode"></span>
-            </div>
-            <div class="input-group">
-                <label asp-for="AddressInfo.City"></label>
-                <input asp-for="AddressInfo.City" />
-                <span asp-validation-for="AddressInfo.City"></span>
-            </div>
-            <div>
-                <button type="reset" class="btn btn-gray">Cancel</button>
-                <button type="submit" class="btn btn-theme">Save changes</button>
-            </div>
-        </form>
+        <h2>Account Details</h2>
+
+        <h5>Basic Info</h5>
+
+            <form method="post" asp-controller="Account" asp-action="UpdateBasicInfo">
+                <div class="info-box-1" id="box-1">
+                    <div class="input-group input-firstname">
+                        <label asp-for="BasicInfo.FirstName">First Name</label>
+                        <input asp-for="BasicInfo.FirstName" />
+                        <span asp-validation-for="BasicInfo.FirstName"></span>
+                    </div>
+                    <div class="input-group input-lastname">
+                        <label asp-for="BasicInfo.LastName">Last Name</label>
+                        <input asp-for="BasicInfo.LastName" />
+                        <span asp-validation-for="BasicInfo.LastName"></span>
+                    </div>
+                    <div class="input-group input-email">
+                        <label asp-for="BasicInfo.Email">Email address</label>
+                        <input asp-for="BasicInfo.Email" disabled />
+                        <span asp-validation-for="BasicInfo.Email"></span>
+                    </div>
+                    <div class="input-group input-phone">
+                        <label asp-for="BasicInfo.PhoneNumber">Phone</label>
+                        <input asp-for="BasicInfo.PhoneNumber" />
+                        <span asp-validation-for="BasicInfo.PhoneNumber"></span>
+                    </div>
+                    <div class="input-group input-bio">
+                        <label asp-for="BasicInfo.Biography">Bio (Optional)</label>
+                        <textarea asp-for="BasicInfo.Biography"></textarea>
+                        <span asp-validation-for="BasicInfo.Biography"></span>
+                    </div>
+                    <div class="btn-container input-button">
+                        <button type="reset" class="btn btn-gray">Cancel</button>
+                        <button type="submit" class="btn btn-theme">Save changes</button>
+                    </div>
+                </div>
+            </form>
+
+            <h5>Address</h5>
+
+            <form method="post" asp-controller="Account" asp-action="UpdateAddressInfo">
+                <div class="info-box-2" id="box-2">
+                    <div class="input-group input-address-1">
+                        <label asp-for="AddressInfo.AddressLine_1">Address line 1</label>
+                        <input asp-for="AddressInfo.AddressLine_1" />
+                        <span asp-validation-for="AddressInfo.AddressLine_1"></span>
+                    </div>
+                    <div class="input-group input-address-2">
+                        <label asp-for="AddressInfo.AddressLine_2">Address line 2</label>
+                        <input asp-for="AddressInfo.AddressLine_2" />
+                        <span asp-validation-for="AddressInfo.AddressLine_2"></span>
+                    </div>
+                    <div class="input-group input-postalcode">
+                        <label asp-for="AddressInfo.PostalCode">Postal code</label>
+                        <input asp-for="AddressInfo.PostalCode" />
+                        <span asp-validation-for="AddressInfo.PostalCode"></span>
+                    </div>
+                    <div class="input-group input-city">
+                        <label asp-for="AddressInfo.City">City</label>
+                        <input asp-for="AddressInfo.City" />
+                        <span asp-validation-for="AddressInfo.City"></span>
+                    </div>
+                    <div class="btn-container input-button">
+                        <button type="reset" class="btn btn-gray">Cancel</button>
+                        <button type="submit" class="btn btn-theme">Save changes</button>
+                    </div>
+                </div>
+            </form>
     </div>
 </section>

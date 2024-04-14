@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace WebApp.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(DataContext))]
     partial class ApplicationContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -47,7 +47,7 @@ namespace WebApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AddressEntity", (string)null);
+                    b.ToTable("AddressEntity");
                 });
 
             modelBuilder.Entity("Infrastructure.Entities.UserEntity", b =>

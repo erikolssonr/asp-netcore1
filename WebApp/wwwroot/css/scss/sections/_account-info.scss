@@ -1,0 +1,72 @@
+.account-information {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    
+
+        .info-box-1 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            grid-template-areas: "firstname lastname" "email phone" "bio bio" "button button";
+
+            label {
+                padding-bottom: 8px;
+                @include font-standard;
+            }
+             
+            .input-firstname {
+                grid-area: firstname;
+            }
+
+            .input-lastname {
+                grid-area: lastname;
+            }
+
+            .input-email {
+                grid-area: email;
+            }
+
+            .input-phone {
+                grid-area: phone;
+            }
+
+            .input-bio {
+                grid-area: bio;
+            }
+
+            .input-button {
+                grid-area: button;
+            }
+    
+        }
+        .info-box-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            grid-template-areas: "address1 address1" "address2 address2" "postalcode city" "button button";
+
+            .input-address-1 {
+               grid-area: address1;
+            }
+
+            .input-address-2 {
+               grid-area: address2;
+            }
+
+            .input-postalcode {
+                grid-area: postalcode;
+            }
+
+            .input-city {
+                grid-area: city;
+            }
+
+            .input-button {
+                grid-area: button;
+            }
+        }
+    }
+}
+

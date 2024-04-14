@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace WebApp.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(DataContext))]
     [Migration("20240412152705_Address")]
     partial class Address
     {

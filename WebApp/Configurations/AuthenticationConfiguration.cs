@@ -13,7 +13,7 @@ namespace WebApp.Configurations
                 x.User.RequireUniqueEmail = true;
                 x.SignIn.RequireConfirmedAccount = false;
                 x.Password.RequiredLength = 8;
-            }).AddEntityFrameworkStores<ApplicationContext>();
+            }).AddEntityFrameworkStores<DataContext>();
 
             services.ConfigureApplicationCookie(x =>
             {

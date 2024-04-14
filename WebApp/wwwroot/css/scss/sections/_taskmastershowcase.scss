@@ -8,22 +8,38 @@
         padding-bottom: 50px;
 
         .task-master-showcase {
-            padding-right: 100px;
+            padding-right: 50px;
             padding-left: 20px;
         }
 
 
         .bullet-points {
+            padding-bottom: 70px;
 
             h2 {
-                padding-bottom: 50px;
+                padding-bottom: 10px;
             }
 
             .checklist {
                 list-style-type: none;
+                padding-left: 0;
 
                 i {
                     padding-right:15px;
+                    color: var(--color-theme);
+                }
+
+                li {
+                    padding-bottom: 15px;
+                    @include font-standard;
+                }
+            }
+
+            button {
+
+                i {
+                    padding-left: 10px;
+                    margin-right: 0;
                 }
             }
         }

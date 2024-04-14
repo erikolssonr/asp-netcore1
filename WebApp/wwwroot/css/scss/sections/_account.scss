@@ -8,6 +8,11 @@
         grid-template-columns: 350px 1fr;
 
 
+        .btn-container {
+            display: flex;
+            padding: 20px 0 20px 0;
+            gap: 10px;
+        }
         aside {
             padding-top: 1rem;
             padding-bottom: 1rem;

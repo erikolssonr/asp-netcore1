@@ -1,32 +1,61 @@
-﻿let forms = document.querySelectorAll('form')
-let inputs = forms[0].querySelectorAll('input')
+﻿    let forms = document.querySelectorAll('form')
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    handleProfileImageUpload()
     select()
     search()
 
 })
 
-inputs.forEach(input => {
-    if (input.dataset.val === 'true') {
-        input.addEventListener('keyup', (e) => {
-            switch (e.target.type) {
-                case 'text':
-                    textValidation(e, e.target.dataset.valMinlengthMin)
-                    break
+forms.forEach(form => {
 
-                case 'email':
-                    emailValidation(e)
-                    break
+    let inputs = form.querySelectorAll('input');
 
-                case 'password':
-                    passwordValidation(e)
-                    break
-            }
-        })
-    }
-})
+    inputs.forEach(input => {
+        if (input.dataset.val === 'true') {
+            input.addEventListener('keyup', (e) => {
+                switch (e.target.type) {
+                    case 'text':
+                        textValidation(e, e.target.dataset.valMinlengthMin)
+                        break
+
+                    case 'email':
+                        emailValidation(e)
+                        break
+
+                    case 'password':
+                        passwordValidation(e)
+                        break
+
+                    case 'tel':
+                        phoneValidation(e)
+                        break
+                }
+            })
+        }
+    })
+});
+
+function handleProfileImageUpload() {
+    try {
+
+        let fileUploader = document.querySelector('#fileUploader')
+        if (fileUploader != undefined) {
+            fileUploader.addEventListener('change', function () {
+                if (this.files.length > 0) {
+                    this.form.submit()
+                }
+            })
+        }
+
+    }   
+    catch { }
+}
+
+
 
 const handleValidOutput = (isValid, e, text = "") => {
 
@@ -68,7 +97,16 @@ const emailValidation = (e) => {
         handleValidOutput(false, e, e.target.dataset.valRequired)
 }
 
+const phoneValidation = (e) => {
 
+    const regEx = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
+
+    if (e.target.value.length > 0)
+        handleValidOutput(regEx.test(e.target.value), e, e.target.dataset.valRegex)
+    else
+        handleValidOutput(false, e, e.target.dataset.valRequired)
+
+}
 
 
 const passwordValidation = (e) => {

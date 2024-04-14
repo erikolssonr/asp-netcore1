@@ -46,9 +46,11 @@ namespace WebApp.Controllers
                 {
                     var result = await _accountService.UpdateBasicInfoAsync(User, model.BasicInfo);
                 }
+
+                return RedirectToAction("Details", "Account");
             }
 
-            return RedirectToAction("Details", "Account");
+            return View(model);
         }
 
         [HttpPost]
@@ -64,8 +66,6 @@ namespace WebApp.Controllers
 
             return RedirectToAction("Details", "Account");
         }
-
-
 
 
         [HttpPost]

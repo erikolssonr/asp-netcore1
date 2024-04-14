@@ -1,6 +1,6 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 :root {
-  --color-white: #FFFFFF;
+  --color-gray-000: #FFFFFF;
   --color-gray-100: #F3F6FF;
   --color-gray-200: #EFF2FC;
   --color-gray-300: #E2E5F1;
@@ -9,15 +9,18 @@
   --color-gray-600: #9397AD;
   --color-gray-700: #565973;
   --color-gray-800: #33354D;
-  --color-gray-900: #OB0F19;
+  --color-gray-900: #0B0F19;
+  --color-white: #FFFFFF;
   --color-black: #000000;
+  --color-gray: #EFF2FC;
   --color-theme: #6366F1;
   --color-danger: #EF4444;
-  --color-success: #22C55E;
+  --color-danger-dark: #e57e88;
+  --color-success: #bcf7d2;
   --color-success-dark: #22C55E;
   --color-warning: #FFBA08;
-  --color-info: #4C82F7;
-  --color-danger-bg: #F5D7DA;
+  --color-info: #cfdefd;
+  --font-standard: "Manrope", sans-serif;
 }
 
 *, *::before, *::after {
@@ -154,6 +157,32 @@ h6 {
   color: var(--color-gray-200);
 }
 
+.btn-gray {
+  background: var(--color-gray);
+  color: var(--color-black);
+  border: 1px solid var(--color-gray);
+}
+.btn-gray:hover {
+  text-decoration: none;
+  border: 1px solid var(--color-theme);
+  background: var(--color-theme);
+  color: var(--color-white);
+}
+
+.btn-white {
+  border: 1px solid var(--color-gray-100);
+  background-color: var(--color-white);
+  color: var(--color-gray-100);
+}
+.btn-white:hover {
+  border: 1px solid var(--color-gray-700);
+  background-color: var(--color-gray-700);
+  color: var(--color-white);
+}
+.btn-white:hover i {
+  color: var(--color-white);
+}
+
 .btn-theme {
   border: none;
   font-weight: 600;
@@ -261,8 +290,8 @@ h6 {
   background: var(--color-white);
   color: var(--color-gray-700);
   padding: 8px 8px;
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
   font-size: 14px;
   border-radius: 50%;
   border: 1px solid var(--color-gray-300);
@@ -274,10 +303,6 @@ h6 {
 }
 .btn-circle:hover {
   cursor: pointer;
-}
-.btn-circle .btn-circle-sm {
-  width: 30px;
-  height: 30px;
 }
 
 .btn-switch {
@@ -358,6 +383,33 @@ h6 {
 .btn-social:hover {
   text-decoration: none;
   background: var(--color-gray-700);
+  color: var(--color-gray-100);
+}
+
+.btn-nav {
+  padding: 8px 0;
+  font-size: 16px;
+}
+.btn-nav.active {
+  border: 1px solid var(--color-theme);
+  background-color: var(--color-theme);
+  color: var(--color-white);
+}
+.btn-nav:hover {
+  border: 1px solid var(--color-gray-800);
+  background-color: var(--color-gray-800);
+  color: var(--color-gray-100);
+  text-decoration: none;
+}
+
+.btn-theme {
+  border: 1px solid var(--color-theme);
+  background-color: var(--color-theme);
+  color: var(--color-white);
+}
+.btn-theme:hover {
+  border: 1px solid var(--color-gray-800);
+  background-color: var(--color-gray-800);
   color: var(--color-gray-100);
 }
 
@@ -869,17 +921,32 @@ header .container .account-buttons .profile .btn-mobile {
   padding-bottom: 50px;
 }
 .taskmastershowcase .container .task-master-showcase {
-  padding-right: 100px;
+  padding-right: 50px;
   padding-left: 20px;
 }
+.taskmastershowcase .container .bullet-points {
+  padding-bottom: 70px;
+}
 .taskmastershowcase .container .bullet-points h2 {
-  padding-bottom: 50px;
+  padding-bottom: 10px;
 }
 .taskmastershowcase .container .bullet-points .checklist {
   list-style-type: none;
+  padding-left: 0;
 }
 .taskmastershowcase .container .bullet-points .checklist i {
   padding-right: 15px;
+  color: var(--color-theme);
+}
+.taskmastershowcase .container .bullet-points .checklist li {
+  padding-bottom: 15px;
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.taskmastershowcase .container .bullet-points button i {
+  padding-left: 10px;
+  margin-right: 0;
 }
 
 .subscribe {
@@ -944,6 +1011,45 @@ header .container .account-buttons .profile .btn-mobile {
 .subscribe .container form .terms {
   font-size: 14px;
   color: var(--color-gray-600);
+}
+
+.appshowcase {
+  background-color: var(--color-gray-100);
+  padding-left: 150px;
+}
+.appshowcase .container {
+  display: flex;
+  align-items: center;
+  padding-top: 75px;
+}
+.appshowcase .container .download {
+  padding: 0px 0 50px 150px;
+}
+.appshowcase .container .download h1 {
+  margin-right: 200px;
+}
+.appshowcase .container .download h4 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.appshowcase .container .download i {
+  padding-right: 5px;
+  font-size: 12px;
+  color: var(--color-warning);
+}
+.appshowcase .container .download p {
+  color: var(--color-gray-700);
+  margin-top: 0px;
+}
+.appshowcase .container .download img {
+  margin-left: 75px;
+  margin-top: 75px;
+}
+.appshowcase .container .download .appstore {
+  display: flex;
+}
+.appshowcase .container .download .googleplay {
+  display: flex;
 }
 
 .pagination {
@@ -1119,6 +1225,11 @@ footer .container .copyright span {
   display: grid;
   grid-template-columns: 350px 1fr;
 }
+.account .container .btn-container {
+  display: flex;
+  padding: 20px 0 20px 0;
+  gap: 10px;
+}
 .account .container aside {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1167,4 +1278,60 @@ footer .container .copyright span {
 }
 .account-profile .info .email {
   font-size: 0.8em;
+}
+
+.account-information .container {
+  display: flex;
+  flex-direction: column;
+}
+.account-information .container .info-box-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  grid-template-areas: "firstname lastname" "email phone" "bio bio" "button button";
+}
+.account-information .container .info-box-1 label {
+  padding-bottom: 8px;
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.account-information .container .info-box-1 .input-firstname {
+  grid-area: firstname;
+}
+.account-information .container .info-box-1 .input-lastname {
+  grid-area: lastname;
+}
+.account-information .container .info-box-1 .input-email {
+  grid-area: email;
+}
+.account-information .container .info-box-1 .input-phone {
+  grid-area: phone;
+}
+.account-information .container .info-box-1 .input-bio {
+  grid-area: bio;
+}
+.account-information .container .info-box-1 .input-button {
+  grid-area: button;
+}
+.account-information .container .info-box-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  grid-template-areas: "address1 address1" "address2 address2" "postalcode city" "button button";
+}
+.account-information .container .info-box-2 .input-address-1 {
+  grid-area: address1;
+}
+.account-information .container .info-box-2 .input-address-2 {
+  grid-area: address2;
+}
+.account-information .container .info-box-2 .input-postalcode {
+  grid-area: postalcode;
+}
+.account-information .container .info-box-2 .input-city {
+  grid-area: city;
+}
+.account-information .container .info-box-2 .input-button {
+  grid-area: button;
 }

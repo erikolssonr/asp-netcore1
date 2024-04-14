@@ -1,0 +1,46 @@
+.appshowcase {
+    background-color: var(--color-gray-100);
+    padding-left: 150px;
+    .container {
+        display: flex;
+        align-items: center;
+        padding-top: 75px;
+
+        .download {
+            padding: 0px 0 50px 150px;
+
+            h1 {
+                margin-right: 200px;
+            }
+
+            h4 {
+                margin-top: 10px;
+                margin-bottom: 0px;
+            }
+
+            i {
+                padding-right: 5px;
+                font-size: 12px;
+                color: var(--color-warning);
+            }
+
+            p {
+                color: var(--color-gray-700);
+                margin-top: 0px;
+            }
+
+            img {
+                margin-left: 75px;
+                margin-top: 75px;
+            }
+
+            .appstore {
+                display: flex;
+            }
+
+            .googleplay {
+                display: flex;
+            }
+        }
+    }
+}
